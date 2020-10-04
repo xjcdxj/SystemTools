@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+import RPi.GPIO as gpio
 import os
 import time
 #import flask
@@ -81,6 +83,10 @@ if __name__ == '__main__':
     system_information = SystemInformation()
     print('CPU Freq|CPU Usage|CPU Temp|Mem Usage|Net Send|Net Recv|Disk Read|Disk Write')
     while True:
-        system_information.update()
-        system_information.print()
-        time.sleep(1)
+        try:
+            system_information.update()
+            system_information.print()
+            time.sleep(1)
+        except KeyboardInterrupt:
+            break
+    print("exit")
