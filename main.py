@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import RPi.GPIO as gpio
+
 import os
 import time
 #import flask
@@ -81,12 +81,14 @@ class SystemInformation:
 if __name__ == '__main__':
 
     system_information = SystemInformation()
+    max_tempreture = 0
     print('CPU Freq|CPU Usage|CPU Temp|Mem Usage|Net Send|Net Recv|Disk Read|Disk Write')
     while True:
         try:
             system_information.update()
             system_information.print()
+            max_tempreture=max(max_tempreture,system_information.cpu_temperature)
             time.sleep(1)
         except KeyboardInterrupt:
+            print(f'\nMax CPU tempreture is {max_tempreture}\'C')
             break
-    print("exit")

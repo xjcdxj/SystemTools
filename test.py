@@ -1,4 +1,5 @@
-import sys
+im
+port sys
 print("Hello Linux")
 
 if __name__ == '__main__':
