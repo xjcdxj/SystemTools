@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/python3
 import time
 import requests
 url = 'https://www.hao4k.cn//k_misign-sign.html'
