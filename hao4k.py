@@ -1,3 +1,6 @@
+#!/bin/bash
+import time
+import requests
 url = 'https://www.hao4k.cn//k_misign-sign.html'
 request_header = {
     'authority': 'www.hao4k.cn',
@@ -17,7 +20,6 @@ request_header = {
     'upgrade-insecure-requests': '1',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36 Edg/86.0.622.43',
 }
-import requests, time
 
 if __name__ == '__main__':
     while True:
