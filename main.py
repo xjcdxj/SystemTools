@@ -65,14 +65,14 @@ class SystemInformation:
         if self.start:
             print(
                 f"\r"
-                f"{_cpu_freq:^8}|"
+                f"|{_cpu_freq:^8}|"
                 f"{_cpu_usage:^9}|"
                 f"{_cpu_temperature:^8}|"
                 f"{_mem_usage:^9}|"
                 f"{_net_send:^8}|"
                 f"{_net_recv:^8}|"
                 f"{_disk_read:^9}|"
-                f"{_disk_write:^9}",
+                f"{_disk_write:^10}|",
                 end='')
         self.start = True
         pass
@@ -81,14 +81,16 @@ class SystemInformation:
 if __name__ == '__main__':
 
     system_information = SystemInformation()
-    max_tempreture = 0
-    print('CPU Freq|CPU Usage|CPU Temp|Mem Usage|Net Send|Net Recv|Disk Read|Disk Write')
+    max_temperature = 0
+    print('+'+'-'*76+'+')
+    print('|CPU Freq|CPU Usage|CPU Temp|Mem Usage|Net Send|Net Recv|Disk Read|Disk Write|')
+    print(f'{"-"*78:^78}')
     while True:
         try:
             system_information.update()
             system_information.print()
-            max_tempreture=max(max_tempreture,system_information.cpu_temperature)
+            max_temperature=max(max_temperature, system_information.cpu_temperature)
             time.sleep(1)
         except KeyboardInterrupt:
-            print(f'\nMax CPU tempreture is {max_tempreture}\'C')
+            print(f'\nMax CPU tempreture is {max_temperature}\'C')
             break
